@@ -7,6 +7,7 @@ from dagster import asset
 @asset
 def poo_face_ezra():
     response = requests.get("https://docs.dagster.io/assets/cereal.txt")
+    print("HI Jen", response.text)
     lines = response.text.split("\n")
     cereal_rows = [row for row in csv.DictReader(lines)]
 
