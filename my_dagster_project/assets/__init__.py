@@ -6,7 +6,7 @@ from dagster import asset
 
 @asset
 def cereals():
-    response = requests.get("https://docs.dagster.io/assets/cereal.csv")
+    response = requests.get("https://docs.dagster.io/assets/cereal.txt")
     lines = response.text.split("\n")
     cereal_rows = [row for row in csv.DictReader(lines)]
 
