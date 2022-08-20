@@ -5,8 +5,9 @@ from dagster import asset
 
 
 @asset
-def cereals():
-    response = requests.get("https://docs.dagster.io/assets/cereal.csv")
+def poo_face_ezra():
+    response = requests.get("https://docs.dagster.io/assets/cereal.txt")
+    print("HI Jen", response.text)
     lines = response.text.split("\n")
     cereal_rows = [row for row in csv.DictReader(lines)]
 
@@ -14,6 +15,6 @@ def cereals():
 
 
 @asset
-def nabisco_cereals(cereals):
+def crazy_face(cereals):
     """Cereals manufactured by Nabisco"""
     return [row for row in cereals if row["mfr"] == "N"]
